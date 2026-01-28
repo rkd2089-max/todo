@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 할 일</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📅 오늘의 할 일</h1>
+        </header>
+
+        <main>
+            <!-- 달력 섹션 -->
+            <section class="calendar-section">
+                <div class="calendar-header">
+                    <button class="nav-btn" id="prevMonth">◀</button>
+                    <h2 id="currentMonth"></h2>
+                    <button class="nav-btn" id="nextMonth">▶</button>
+                </div>
+                <div class="calendar-grid" id="calendarGrid"></div>
+            </section>
+
+            <!-- 선택된 날짜 및 할 일 섹션 -->
+            <section class="todo-section">
+                <div class="selected-date">
+                    <h3 id="selectedDateText">날짜를 선택해주세요</h3>
+                    <span class="todo-count" id="todoCount"></span>
+                </div>
+
+                <!-- 할 일 입력 폼 -->
+                <div class="todo-form">
+                    <input 
+                        type="text" 
+                        id="todoInput" 
+                        placeholder="할 일을 입력하세요..."
+                        maxlength="100"
+                    >
+                    <button id="addTodoBtn">추가</button>
+                </div>
+
+                <!-- 할 일 목록 -->
+                <div class="todo-list" id="todoList"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- 비밀번호 입력 모달 -->
+    <div class="modal" id="passwordModal">
+        <div class="modal-content">
+            <h3 id="modalTitle">비밀번호 입력</h3>
+            <input 
+                type="password" 
+                id="passwordInput" 
+                placeholder="비밀번호를 입력하세요"
+            >
+            <div class="modal-buttons">
+                <button id="confirmBtn">확인</button>
+                <button id="cancelBtn">취소</button>
+            </div>
+            <p class="error-message" id="errorMessage"></p>
+        </div>
+    </div>
+
+    <!-- 수정 모달 -->
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <h3>할 일 수정</h3>
+            <input 
+                type="text" 
+                id="editTodoInput" 
+                placeholder="수정할 내용을 입력하세요"
+                maxlength="100"
+            >
+            <div class="modal-buttons">
+                <button id="saveEditBtn">저장</button>
+                <button id="cancelEditBtn">취소</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
